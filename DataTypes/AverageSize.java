@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class AverageSize {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter count of digital for reasearch:");
+        System.out.println("Enter count of digital for research:");
         int countOfdigitals = scanner.nextInt();
         String[] digitals = new String[countOfdigitals];
         System.out.println("Enter " + countOfdigitals + "  numbers:");

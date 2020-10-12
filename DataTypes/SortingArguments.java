@@ -17,7 +17,7 @@ public class SortingArguments {
     }
     public  String [] addArray() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter count of arguments for reasearch:");
+        System.out.println("Enter count of arguments for research:");
         int countOfarguments = scanner.nextInt();
         String[] arguments = new String[countOfarguments];
         System.out.println("Enter " + countOfarguments + "  arguments");

@@ -16,7 +16,7 @@ public class NumberPallindrome {
     public String[] addArray() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter count of digital for reasearch:");
+        System.out.println("Enter count of digital for research:");
         int countOfdigitals = scanner.nextInt();
         String[] digitals = new String[countOfdigitals];
         System.out.println("Enter " + countOfdigitals + "  numbers");
@@ -49,7 +49,7 @@ public class NumberPallindrome {
         if (noNumberPalindrome){
             System.out.println("No palindrome number");
         }else{
-            System.out.println("The number pallindrome->:  " + palindrome);
+            System.out.println("The number palindrome->:  " + palindrome);
         }
 
     }

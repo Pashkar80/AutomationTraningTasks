@@ -14,10 +14,6 @@ public class PrintResults {
         }
     }
 
-    public static void printString(String numbers) {
-
-        System.out.print(numbers);
-    }
 
 
 

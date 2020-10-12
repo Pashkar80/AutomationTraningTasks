@@ -16,7 +16,7 @@ public class IncreaseDigitals {
 
     public String[] addToArray() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter count of digital for reasearch:");
+        System.out.println("Enter count of digital for research:");
         int countOfdigitals = scanner.nextInt();
         String[] digitals = new String[countOfdigitals];
         System.out.println("Enter " + countOfdigitals + "  numbers");
@@ -35,6 +35,7 @@ public class IncreaseDigitals {
             Integer[] numerals = new Integer[digital.length()];
             for (int i = 0; i < charsOfdigital.length; i++) {
                 numerals[i] = Character.getNumericValue(charsOfdigital[i]);
+
 
             }
             boolean lessThanNext = true;

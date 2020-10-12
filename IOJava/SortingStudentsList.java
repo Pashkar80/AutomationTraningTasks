@@ -9,20 +9,26 @@ import java.util.*;
 public class SortingStudentsList {
     public static void main(String[] args) throws IOException {
         SortingStudentsList sortingStudentsList = new SortingStudentsList();
-        File file = sortingStudentsList.chekFile("listStudents");
+        File file = sortingStudentsList.checkFile("listStudents");
         HashMap<String, String> map = sortingStudentsList.readFile(file);
         HashMap<String, String> sorteMap = sortingStudentsList.sorteLitters(map);
-        sortingStudentsList.writeSorteList(sorteMap, file);
+        sortingStudentsList.writeSortelist(sorteMap, file);
 
 
     }
 
-    public File chekFile(String nameFile) {
+
+
+    public File checkFile(String nameFile  ) throws IOException {
         String path = System.getProperty("user.dir") + "/data";
         File file = new File(path, nameFile);
+        if (!file.isFile()) {
+           throw new IOException("This is not file");
+        }
 
         return file;
     }
+
 
 
     public HashMap<String, String> readFile(File file) throws IOException {
@@ -55,11 +61,10 @@ public class SortingStudentsList {
 
         Iterator<Map.Entry<String, String>> iterator = setList.iterator();
         while (iterator.hasNext()) {
-            boolean equalValue;
             int setValue = 7;
             Map.Entry<String, String> me = iterator.next();
 
-            if (equalValue = (Integer.parseInt(me.getValue()) > setValue)) {
+            if ((Integer.parseInt(me.getValue()) > setValue)) {
 
 
                 sorteMap.put(me.getKey().toUpperCase(), me.getValue());
@@ -76,7 +81,7 @@ public class SortingStudentsList {
         return sorteMap;
     }
 
-    public void writeSorteList(HashMap<String, String> map, File file) throws IOException {
+    public void writeSortelist(HashMap<String, String> map, File file) throws IOException {
         Set<Map.Entry<String, String>> setList = map.entrySet();
         try (PrintWriter writer = new PrintWriter(new FileWriter(file, true))) {
             Iterator<Map.Entry<String, String>> iterator = setList.iterator();

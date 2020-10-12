@@ -10,8 +10,6 @@ public class SwitchWords {
     public static void main(String[] args) throws IOException {
         SwitchWords switchWords = new SwitchWords();
         File file = switchWords.chekFile("SortingStudentsList.java");
-        String absolutePath =file.getAbsolutePath();
-        System.out.println(absolutePath);
         ArrayList<String> list = switchWords.readFile(file);
         ArrayList<String> listChange = switchWords.switchWord(list);
         switchWords.writeList(listChange);

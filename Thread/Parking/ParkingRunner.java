@@ -9,9 +9,10 @@ public class ParkingRunner {
     static final boolean[] PARKING_PLACES = new boolean[5];
      static  Semaphore SEMAPHORE = new Semaphore(5, true);
 
+
     public static void main(String[] args) {
 
-        for (int i = 0; i <= 8; i++) {
+        for (int i = 0; i <=15; i++) {
             new Thread(new Car(i)).start();
             try {
                 Thread.sleep(1000);

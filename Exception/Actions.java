@@ -9,6 +9,8 @@ public class Actions  {
 
 
     public  static File checkFile(String nameFile) throws ExceptionsWorkWithFile {
+        Thread t= new Thread();
+
         String path = System.getProperty("user.dir") + "/src/Exception" ;
         File file = new File(path,nameFile);
        final long MEMORY=3560;
@@ -45,10 +47,13 @@ public class Actions  {
                 line=line+(char)countsByte;
             }
         }catch (IOException e){
-           throw new StreamException("Promblem with thread");
+           throw new StreamException("Problem with thread");
         }
+
         return line;
     }
+
+
 
 
     public static String deleteEmptyChar(String line) throws ExceptionsWorkWithFile {
@@ -69,33 +74,13 @@ public class Actions  {
     }
 
 
-    public static String checkIsDigital(String line) throws ExceptionsWorkWithFile {
-        String[] massive = line.split("\\s");
-        boolean arithmeticChar = true;
-        String numbers = "";
-        for (int i = 0; i < massive.length; i++) {
-            char[] c = massive[i].toCharArray();
-            for (int j = 0; j < c.length; j++) {
-                if (Character.isDigit(c[j]) == false && c[j] != '.' && c[j]!='-' && c[j]!='E'){
-                    throw new IllegalIncorrectElement("Invalid characters in file");
-                }
-                else {
-                    arithmeticChar = true;
-                }
-            }
-            if (arithmeticChar == true) {
-                numbers = numbers + massive[i] + " ";
-            }
-        }
-        return numbers;
-    }
 
 
     public static double[] parse(String numbers) throws ExceptionsWorkWithFile {
         String[] massive = numbers.split("\\s");
         double[] digitals = new double[massive.length];
-        final double max =Double.MAX_VALUE;// ??с большой буквы как вариант вырести в переменные класса из метода
-        final double min = -Double.MAX_VALUE;
+        final double max =Double.MAX_VALUE;
+        final double min = -Double.MIN_VALUE;
         try{
         for (int i = 0; i < massive.length; i++) {
             digitals[i] = Double.parseDouble(massive[i]);
@@ -114,16 +99,16 @@ public class Actions  {
 
 
     public static double calculateAmount(double[] massive) {
-        double summa = 0.0;
+        double sum = 0.0;
         for (int i = 0; i < massive.length; i++) {
-            summa = summa + massive[i];
+            sum = sum + massive[i];
         }
-        return summa;
+        return sum;
     }
 
 
-    public static double calculateAverange(double[] mas, double summa) {
-        double averange = summa / mas.length;
+    public static double calculateAverange(double[] mas, double sum) {
+        double averange = sum / mas.length;
         return averange;
     }
 

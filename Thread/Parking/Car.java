@@ -9,7 +9,7 @@ import static Thread.Parking.ParkingRunner.SEMAPHORE;
 /**
  * Created by user on 17.03.2019.
  */
-public class Car implements Runnable {
+public class Car implements  Runnable{
 
 
     private int carNumber;
@@ -18,6 +18,10 @@ public class Car implements Runnable {
     public Car(int carNumber) {
         this.carNumber = carNumber;
     }
+    public Car() {
+
+    }
+
 
     @Override
     public void run() {
@@ -37,6 +41,7 @@ public class Car implements Runnable {
                         System.out.println("Car №" + carNumber + "  parking on the place " + i);
                         break;
 
+
                     }
 
 
@@ -44,18 +49,26 @@ public class Car implements Runnable {
                 }
 
             Thread.sleep(5000);
+               boolean flag= SEMAPHORE.tryAcquire();
+               if(flag==false){
+                   SEMAPHORE.wait(100);
+                   System.out.println("Car №" + carNumber + "  съебал");
+               }
+
 
 
                 PARKING_PLACES[parkingNumber] = false;
 
             SEMAPHORE.release();
-            System.out.println("Car №" + carNumber + "  leaved parking");
+            System.out.println("Car №" + carNumber + "  left parking");
 
         } catch (InterruptedException e) {
 
         }
 
     }
+
+
 }
 
 
